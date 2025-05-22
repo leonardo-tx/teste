@@ -9,19 +9,21 @@ on:
       number_in:
         required: true
         type: number
-  workflow_dispatch:
-    inputs:
-      text_in:
-        default: 'John John'
-        required: false
-        type: string
-      number_in:
-        required: true
-        type: number
+    outputs:
+      text_out:
+        value: ${{ jobs.body_transform.outputs.text_out }}
+      number_out:
+        value: ${{ jobs.body_transform.outputs.number_out }}
+      
 
 jobs:
   body_transform:
     runs-on: ubuntu-latest
+    outputs:
+      text_out:
+        value: ${{ steps.calc.outputs.text_out }}
+      number_out:
+        value: ${{ steps.calc.outputs.number_out }}
     steps:
       - id: calc
         shell: bash
@@ -31,6 +33,5 @@ jobs:
           NEW_TEXT="${TEXT}-${NUMBE}"
           NEW_NUMBE=$((NUMBE * 2))
           
-          echo $NEW_TEXT
-          echo $NEW_NUMBE
-    
+          echo "text_out=$NEW_TEXT" >> "$GITHUB_OUTPUT"
+          echo "number_out=$NEW_NUMBE" >> "$GITHUB_OUTPUT"
