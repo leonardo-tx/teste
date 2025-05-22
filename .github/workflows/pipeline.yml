@@ -18,3 +18,9 @@ jobs:
     with:
       text_in: ${{ inputs.text_in }}
       number_in: ${{ inputs.number_in }}
+  step2:
+    needs: step1
+    uses: ./.github/workflows/step2.yml
+    with:
+      text_in: ${{ needs.step1.outputs.text_out }}
+      number_in: ${{ needs.step1.outputs.number_out }}
