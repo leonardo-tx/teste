@@ -3,8 +3,8 @@ on:
   workflow_call:
     inputs:
       text_in:
+        default: 'John John'
         required: false
-        default: John John
         type: string
       number_in:
         required: true
@@ -19,6 +19,6 @@ jobs:
       - id: calc
         shell: bash
         run: |
-          TEXT=${{ inputs.text_in }};
+          TEXT="${{ inputs.text_in }}"
           echo $TEXT
     
