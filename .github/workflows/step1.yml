@@ -1,0 +1,22 @@
+name: W1
+on:
+  workflow_call:
+    inputs:
+      text_in:
+        required: true
+        type: string
+      number_in:
+        required: true
+        type: number
+  workflow_dispatch:
+    
+
+jobs:
+  body_transform:
+    runs-on: ubuntu-latest
+    steps:
+      - id: calc
+        shell: bash
+        run: |
+          echo Teste
+    
