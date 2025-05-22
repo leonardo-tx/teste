@@ -10,7 +10,14 @@ on:
         required: true
         type: number
   workflow_dispatch:
-    
+    inputs:
+      text_in:
+        default: 'John John'
+        required: false
+        type: string
+      number_in:
+        required: true
+        type: number
 
 jobs:
   body_transform:
