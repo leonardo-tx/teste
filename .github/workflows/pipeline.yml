@@ -7,9 +7,9 @@ on:
         required: false
         type: string
       number_in:
-        default: 4
+        default: '4'
         required: false
-        type: number
+        type: string
       
 
 jobs:
