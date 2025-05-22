@@ -27,5 +27,10 @@ jobs:
         shell: bash
         run: |
           TEXT="${{ inputs.text_in }}"
-          echo $TEXT
+          NUMBE=${{ inputs.number_in }}
+          NEW_TEXT="${TEXT}-${NUMBE}"
+          NEW_NUMBE=$((NUMBE * 2))
+          
+          echo $NEW_TEXT
+          echo $NEW_NUMBE
     
