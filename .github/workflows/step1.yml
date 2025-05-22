@@ -20,10 +20,8 @@ jobs:
   body_transform:
     runs-on: ubuntu-latest
     outputs:
-      text_out:
-        value: ${{ steps.calc.outputs.text_out }}
-      number_out:
-        value: ${{ steps.calc.outputs.number_out }}
+      text_out: ${{ steps.calc.outputs.text_out }}
+      number_out: ${{ steps.calc.outputs.number_out }}
     steps:
       - id: calc
         shell: bash
