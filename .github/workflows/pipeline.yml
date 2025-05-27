@@ -22,3 +22,16 @@ jobs:
     with:
       text_in: ${{ needs.step1.outputs.text_out }}
       number_in: ${{ fromJson(needs.step1.outputs.number_out) }}
+  step3:
+    needs: step2
+    uses: ./.github/workflows/step3.yml
+    with:
+      text_in: ${{ needs.step2.outputs.text_out }}
+      number_in: ${{ fromJson(needs.step1.outputs.number_out) }}
+  step4:
+      needs: step3
+      uses: ./.github/workflows/step4.yml
+      with:
+        text_in: ${{ needs.step3.outputs.text_out }}
+        number_in: ${{ fromJson(needs.step1.outputs.number_out) }}
+
