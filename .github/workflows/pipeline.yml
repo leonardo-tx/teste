@@ -23,4 +23,4 @@ jobs:
     uses: ./.github/workflows/step2.yml
     with:
       text_in: ${{ needs.step1.outputs.text_out }}
-      number_in: ${{ needs.step1.outputs.number_out }}
+      number_in: ${{ fromJson(needs.step1.outputs.number_out) }}
