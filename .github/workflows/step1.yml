@@ -3,8 +3,7 @@ on:
   workflow_call:
     inputs:
       text_in:
-        default: 'John John'
-        required: false
+        required: true
         type: string
       number_in:
         required: true
