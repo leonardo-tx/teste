@@ -1,0 +1,34 @@
+name: W3
+on:
+  workflow_call:
+    inputs:
+      text_in:
+        required: true
+        type: string
+      number_in:
+        required: true
+        type: number
+    outputs:
+      text_out:
+        value: ${{ jobs.body_transform.outputs.text_out }}
+      number_out:
+        value: ${{ jobs.body_transform.outputs.number_out }}
+      
+
+jobs:
+  body_transform:
+    runs-on: ubuntu-latest
+    outputs:
+      text_out: ${{ steps.calc.outputs.text_out }}
+      number_out: ${{ steps.calc.outputs.number_out }}
+    steps:
+      - id: calc
+        shell: bash
+        run: |
+          TEXT="${{ inputs.text_in }}"
+          NUM=${{ inputs.number_in }}
+          echo "### Resultado Final" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Texto Final: $TEXT" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Número Final: $NUM" >> "$GITHUB_STEP_SUMMARY"
+          echo "text_out=$TEXT" >> "$GITHUB_OUTPUT"
+          echo "number_out=$NUM" >> "$GITHUB_OUTPUT"
