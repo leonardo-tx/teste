@@ -3,12 +3,10 @@ on:
   workflow_dispatch:
     inputs:
       text_in:
-        default: 'John John'
-        required: false
+        required: true
         type: string
       number_in:
-        default: 4
-        required: false
+        required: true
         type: number
       
 
