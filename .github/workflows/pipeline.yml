@@ -1,21 +1,13 @@
 name: Pipeline
 on:
   workflow_dispatch:
-    inputs:
-      text_in:
-        required: true
-        type: string
-      number_in:
-        required: true
-        type: number
-      
 
 jobs:
   step1:
     uses: ./.github/workflows/step1.yml
     with:
-      text_in: ${{ inputs.text_in }}
-      number_in: ${{ fromJson(inputs.number_in) }}
+      text_in: ${{ vars.TEXT_IN }}
+      number_in: ${{ fromJson(vars.NUMBER_IN) }}
   step2:
     needs: step1
     uses: ./.github/workflows/step2.yml
