@@ -1,11 +1,6 @@
 name: W1
 on:
   workflow_call:
-    secrets:
-      text_in:
-        required: true
-      number_in:
-        required: true
     outputs:
       text_out:
         value: ${{ jobs.body_transform.outputs.text_out }}
@@ -23,8 +18,8 @@ jobs:
       - id: calc
         shell: bash
         run: |
-          TEXT="${{ secrets.text_in }}"
-          NUMBE=${{ secrets.number_in }}
+          TEXT="${{ secrets.TEXT_IN_SECRET }}"
+          NUMBE=${{ secrets.N_IN_SECRET }}
           NEW_TEXT="${TEXT}-${NUMBE}"
           NEW_NUMBE=$((NUMBE * 2))
           
