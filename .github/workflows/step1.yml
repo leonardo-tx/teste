@@ -21,7 +21,7 @@ jobs:
           TEXT="${{ secrets.TEXT_IN_SECRET }}"
           NUMBE=${{ secrets.N_IN_SECRET }}
           NEW_TEXT="${TEXT}-${NUMBE}"
-          NEW_NUMBE=$((NUMBE))
+          NEW_NUMBE=$((NUMBE * 2))
           
           echo "text_out=$NEW_TEXT" >> "$GITHUB_OUTPUT"
           echo "number_out=$NEW_NUMBE" >> "$GITHUB_OUTPUT"
