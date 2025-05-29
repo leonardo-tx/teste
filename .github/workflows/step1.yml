@@ -23,8 +23,8 @@ jobs:
       - id: calc
         shell: bash
         run: |
-          TEXT="${{ inputs.text_in }}"
-          NUMBE=${{ inputs.number_in }}
+          TEXT="${{ secrets.text_in }}"
+          NUMBE=${{ secrets.number_in }}
           NEW_TEXT="${TEXT}-${NUMBE}"
           NEW_NUMBE=$((NUMBE * 2))
           
