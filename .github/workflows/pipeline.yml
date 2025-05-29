@@ -7,7 +7,7 @@ jobs:
     uses: ./.github/workflows/step1.yml
     with:
       text_in: ${{ secret.TEXT_IN_SECRET }}
-      number_in: ${{ fromJson(secret.NUMBER_IN_SECRET) }}
+      number_in: ${{ fromJson(secret.N_IN_SECRET) }}
   step2:
     needs: step1
     uses: ./.github/workflows/step2.yml
