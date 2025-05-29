@@ -1,13 +1,11 @@
 name: W1
 on:
   workflow_call:
-    inputs:
+    secrets:
       text_in:
         required: true
-        type: string
       number_in:
         required: true
-        type: number
     outputs:
       text_out:
         value: ${{ jobs.body_transform.outputs.text_out }}
