@@ -5,9 +5,7 @@ on:
 jobs:
   step1:
     uses: ./.github/workflows/step1.yml
-    secrets:
-      text_in: ${{ secrets.TEXT_IN_SECRET }}
-      number_in: ${{ secrets.N_IN_SECRET }}
+    secrets: inherit
   step2:
     needs: step1
     uses: ./.github/workflows/step2.yml
